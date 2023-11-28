@@ -8,7 +8,9 @@ CREATE TABLE employers (
 
 CREATE TABLE users (
     user_id INT PRIMARY KEY AUTO_INCREMENT,
-    full_name VARCHAR(300) not null,
+    first_name VARCHAR(200) not null,
+    last_name VARCHAR(200) not null,
+    full_name VARCHAR(401) GENERATED ALWAYS as (concat(first_name, ' ', last_name)),
     yearly_salary float,
     status enum ('employed', 'self-employed', 'unemployed') not null
 );
